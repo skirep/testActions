@@ -5,7 +5,7 @@ import time
 
 service = Service()
 options = webdriver.ChromeOptions()
-options.add_argument('--headless --window-size=1920,1080')
+options.add_argument('--headless')
 
 driver = webdriver.Chrome(service=service, options=options)
 
