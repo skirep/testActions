@@ -35,3 +35,9 @@ jobs:
           pip install selenium
           python googleScreen.py
           ls
+          git clone https://github.com/skirep/actionResult.git
+          cd actionResult
+          cp ../*.png ./
+          ls
+          git push
+          echo fi !
