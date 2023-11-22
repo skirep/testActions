@@ -15,6 +15,7 @@ on:
 
 env:
   WEB_URL: ${{ vars.WEB_URL }}
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -39,7 +40,7 @@ jobs:
           pip install selenium
           python googleScreen.py
           ls
-          git clone https://github.com/skirep/actionResult.git
+          git clone https://$GH_TOKEN@github.com/skirep/actionResult.git
           cd actionResult
           cp ../*.png ./
           ls
@@ -47,5 +48,3 @@ jobs:
           git commit
           git push
           echo fi !
-        env:
-          REPOSITORY_VAR: ${{ env.REPOSITORY_VAR }}
