@@ -40,6 +40,9 @@ jobs:
           pip install selenium
           python googleScreen.py
           ls
+          git config --global user.email "skirep@gmail.com"
+          git config --global user.name "Oriol C."
+        
           git clone https://$GH_TOKEN@github.com/skirep/actionResult.git
           cd actionResult
           cp ../*.png ./
