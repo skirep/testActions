@@ -32,7 +32,7 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          export WEB_URL = ${{ env.WEB_URL }}
+          export WEB_URL=${{ env.WEB_URL }}
           echo $WEB_URL 
           pip install selenium
           python googleScreen.py
