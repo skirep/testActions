@@ -32,6 +32,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          export WEB_URL = ${{ env.WEB_URL }}
+          echo $WEB_URL 
           pip install selenium
           python googleScreen.py
           ls
@@ -41,3 +43,5 @@ jobs:
           ls
           git push
           echo fi !
+        env:
+          REPOSITORY_VAR: ${{ env.REPOSITORY_VAR }}
