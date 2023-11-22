@@ -43,6 +43,8 @@ jobs:
           cd actionResult
           cp ../*.png ./
           ls
+          git add -A
+          git commit
           git push
           echo fi !
         env:
