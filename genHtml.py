@@ -23,7 +23,7 @@ def generar_pagina_html(directorio):
     contenido_html += "</table>\n</body>\n</html>"
 
     # Guardar el contenido en un archivo HTML
-    with open("pagina.html", "w") as archivo_html:
+    with open("index.html", "w") as archivo_html:
         archivo_html.write(contenido_html)
 
 def obtener_fecha_creacion(ruta_archivo):

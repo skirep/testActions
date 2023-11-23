@@ -38,6 +38,7 @@ jobs:
           echo test, and deploy your project.
           echo $WEB_URL 
           pip install selenium
+          pip install DateTime
           python googleScreen.py
           echo -- git config user.email
           git config --global user.email "skirep@gmail.com"
@@ -49,6 +50,7 @@ jobs:
           git clone https://$GH_TOKEN@github.com/skirep/actionResult.git
           cd actionResult
           cp ../*.png ./
+          python ../genHtml.py
           echo -- Files inside new repo
           ls
           echo git add -A
