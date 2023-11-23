@@ -39,11 +39,13 @@ jobs:
           echo $WEB_URL 
           pip install selenium
           python googleScreen.py
-          echo git config user.email
+          echo -- git config user.email
           git config --global user.email "skirep@gmail.com"
-          echo git config user.name
+          echo -- git config user.name
           git config --global user.name "Oriol C."
-          echo git clone
+          echo -- git config editor
+          git config --global core.editor "vim"
+          echo -- git clone
           git clone https://$GH_TOKEN@github.com/skirep/actionResult.git
           cd actionResult
           cp ../*.png ./
