@@ -54,7 +54,7 @@ jobs:
           echo git add -A
           git add -A
           echo git commit
-          git commit
+          git commit -a --allow-empty-message -m ''
           echo git push
           git push
           echo fi !
