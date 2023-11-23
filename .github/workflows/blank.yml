@@ -39,7 +39,7 @@ jobs:
           echo $WEB_URL 
           pip install selenium
           pip install DateTime
-          python googleScreen.py
+          python webScreenshot.py
           echo -- git config user.email
           git config --global user.email "skirep@gmail.com"
           echo -- git config user.name

@@ -1,41 +1,41 @@
 import os
 import datetime
 
-def generar_pagina_html(directorio):
-    # Obtener la lista de archivos PNG
-    archivos_png = [archivo for archivo in os.listdir(directorio) if archivo.lower().endswith('.png')]
+def generate_html_page(directory):
+    # Get the list of PNG files
+    png_files = [file for file in os.listdir(directory) if file.lower().endswith('.png')]
 
-    # Crear el contenido HTML
-    contenido_html = "<html>\n<body>\n<h1>Archivos PNG en el directorio</h1>\n<table border='1'>\n<tr>\n<th>Nombre del Archivo</th>\n<th>Fecha de Creación</th>\n<th>Link</th>\n</tr>\n"
+    # Create HTML content
+    html_content = "<html>\n<body>\n<div align='center'>\n<h1>PNG Files in the Directory</h1>\n<table border='1'>\n<tr>\n<th>File Name</th>\n<th>Creation Date</th>\n<th>Link</th>\n</tr>\n"
 
-    # Agregar una fila por cada archivo PNG
-    for archivo_png in archivos_png:
-        # Generar la ruta completa del archivo
-        ruta_completa = os.path.join(directorio, archivo_png)
+    # Add a row for each PNG file
+    for png_file in png_files:
+        # Generate the full path of the file
+        file_path = os.path.join(directory, png_file)
 
-        # Obtener la fecha de creación del archivo
-        fecha_creacion = obtener_fecha_creacion(ruta_completa)
+        # Get the creation date of the file
+        creation_date = get_creation_date(file_path)
 
-        # Agregar una fila a la tabla HTML con el nombre del archivo, fecha de creación y enlace
-        contenido_html += f'<tr>\n<td>{archivo_png}</td>\n<td>{fecha_creacion}</td>\n<td><a href="{ruta_completa}" target="_blank">Link</a></td>\n</tr>\n'
+        # Add a row to the HTML table with the file name, creation date, and link
+        html_content += f'<tr>\n<td>{png_file}</td>\n<td>{creation_date}</td>\n<td><a href="{file_path}" target="_blank">Link</a></td>\n</tr>\n'
 
-    # Cerrar las etiquetas HTML
-    contenido_html += "</table>\n</body>\n</html>"
+    # Close HTML tags
+    html_content += "</table>\n</div>\n</body>\n</html>"
 
-    # Guardar el contenido en un archivo HTML
-    with open("index.html", "w") as archivo_html:
-        archivo_html.write(contenido_html)
+    # Save the content to an HTML file named "index.html"
+    with open("index.html", "w") as html_file:
+        html_file.write(html_content)
 
-def obtener_fecha_creacion(ruta_archivo):
-    # Obtener la fecha de creación del archivo
-    fecha_creacion_timestamp = os.path.getctime(ruta_archivo)
-    fecha_creacion = datetime.datetime.fromtimestamp(fecha_creacion_timestamp)
-    return fecha_creacion.strftime("%Y-%m-%d %H:%M:%S")
+def get_creation_date(file_path):
+    # Get the creation date of the file
+    creation_date_timestamp = os.path.getctime(file_path)
+    creation_date = datetime.datetime.fromtimestamp(creation_date_timestamp)
+    return creation_date.strftime("%Y-%m-%d %H:%M:%S")
 
-# Especifica el directorio que deseas analizar
-directorio_actual = "."  # Puedes cambiar esto al directorio que desees
+# Specify the directory you want to analyze
+current_directory = "."  # You can change this to the desired directory
 
-# Generar la página HTML con la tabla y enlaces
-generar_pagina_html(directorio_actual)
+# Generate the HTML page with the centered table and links
+generate_html_page(current_directory)
 
-print("Página HTML generada exitosamente.")
+print("HTML page generated successfully. The file is named 'index.html'.")
