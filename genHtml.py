@@ -5,8 +5,8 @@ def generate_html_page(directory):
     # Get the list of PNG files
     png_files = [file for file in os.listdir(directory) if file.lower().endswith('.png')]
 
-    # Sort the files by creation date
-    png_files.sort(key=lambda file: get_creation_date(os.path.join(directory, file)))
+    # Sort the files alphabetically by file name
+    png_files.sort()
 
     # Create HTML content
     html_content = "<html>\n<body>\n<div align='center'>\n<h1>PNG Files in the Directory</h1>\n<table border='1'>\n<tr>\n<th>File Name</th>\n<th>Creation Date</th>\n<th>Link</th>\n</tr>\n"
@@ -38,7 +38,7 @@ def get_creation_date(file_path):
 # Specify the directory you want to analyze
 current_directory = "."  # You can change this to the desired directory
 
-# Generate the HTML page with the centered table and links, files sorted by creation date
+# Generate the HTML page with the centered table and links, files sorted alphabetically by name
 generate_html_page(current_directory)
 
 print("HTML page generated successfully. The file is named 'index.html'.")
